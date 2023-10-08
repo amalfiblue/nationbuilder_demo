@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "nationbuilder-demo"
+version = "0.1.0"
+description = "Demo of Nationbuilder API Access for Amalfi"
+authors = ["andrewwaites <andrew.waites@gmail.com>"]
+license = "GPL"
+readme = "README.md"
+packages = [{include = "nationbuilder_demo"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.103.2"
+uvicorn = "^0.23.2"
+gunicorn = "^21.2.0"
+black = "^23.9.1"
+pydantic = "^2.4.2"
+httpx = "^0.25.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
