@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from EndPoint.apis import NBResponse, AMRequest, NBRequest
+from EndPoint.apis import NBResponse, AMRequest, AMPerson, NBRequest
 
 app = FastAPI()
 
@@ -31,3 +31,13 @@ async def person(id: int, slug: str, token: str):
     except:
         raise HTTPException(status_code=404, detail="Person not found")
     return NBResponse(message=f'{person["first_name"]} {person["last_name"]} returned')
+
+@app.put("/person", response_model=NBResponse)
+async def put_person(person: AMPerson, id: int, slug: str, token: str):
+    nb = NBRequest(slug, token)
+    try:
+        resp = nb.getPerson(id)
+    except:
+        raise HTTPException(status_code=404, detail="Person not found")
+
+    return NBResponse(message=f'Person {id} updated')
