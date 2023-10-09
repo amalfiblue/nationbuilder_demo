@@ -5,15 +5,15 @@ Demo of API Use to access NB emulating bubble
 
 Bubble (bubble.io) is a nocode platform on which the Amalfination webapp has been built. This makes demonstrating API code difficult so the code in here spikes the various calls used within Amalfination.
 
-Amalfination backends Nationbuilder in porviding misceleaneous extra services/convenience services. As such its principal requirement is to synchronise voluneteers with Nationbuilder (signup etc. occurs in the Nationbuilder site).
+Amalfination backends Nationbuilder in providing misceleaneous extra services/convenience services. As such its principal requirement is to synchronise voluneteers with Nationbuilder (signup etc. occurs in the Nationbuilder site).
 
-For some sites webhooks are used as triggers to this process where3as in others the mechanism is based on a polling system which is the preferred approach by Nationbuilder given the deorecation of webhook support and variability in their reliability.
+For some sites webhooks are used as triggers to this process whereas in others the mechanism is based on a polling system which is the preferred approach by Nationbuilder given the deprecation of webhook support and variability in their reliability.
 
-The polling system thus uses the Nationbuilder GET */people/search* API call to fetch people records that have been updated/added since the last poll event. This API call is emulated here with the response being a simple count of returned people records.
+The polling system thus uses the Nationbuilder GET **/people/search** API call to fetch people records that have been updated/added since the last poll event. This API call is emulated here with the response being a simple count of returned people records.
 
-In the bubble app this call is forked to either a call to create a new user or update an existing user. In both cases the called 'function' uses a Nationbuilder GET */people/:id* to get full details of the passed person - in some cases the search call (at least historically) was incomplete.
+In the bubble app this call is forked to either a call to create a new user or update an existing user. In both cases the called 'function' uses a Nationbuilder GET **/people/:id** to get full details of the passed person - in some cases the search call (at least historically) was incomplete.
 
-Finally, when person details are updated on Amalfination they are pushed back to Nationbuilder using the PUT */person/:id* API call.
+Finally, when person details are updated on Amalfination they are pushed back to Nationbuilder using the PUT **/person/:id** API call.
 
 ##Framework
 
