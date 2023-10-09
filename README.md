@@ -15,7 +15,7 @@ In the bubble app this call is forked to either a call to create a new user or u
 
 Finally, when person details are updated on Amalfination they are pushed back to Nationbuilder using the PUT **/person/:id** API call.
 
-##Framework
+## Framework
 
 For convenience and because we are currently working with FastAPI it was used as a framework for this process.
 
