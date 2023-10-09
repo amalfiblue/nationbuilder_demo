@@ -66,3 +66,4 @@ class NBRequest():
     
     def putPerson(self, id: int, person: AMPerson):
         return self.put(f"api/v1/people/{id}?fire_webhooks=false", {'person':person.model_dump() })
+    
